@@ -10,7 +10,7 @@ int main(void)
 {
 	int status = 1;
 	char *line;
-	char **args;
+	char **args = NULL;
 
 	while (status != 0)
 	{

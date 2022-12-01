@@ -17,5 +17,6 @@ extern char **environ;
 
 int _putchar(char c);
 int exec(char **args);
+char *f_read(void);
 
 #endif
