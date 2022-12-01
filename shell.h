@@ -9,12 +9,13 @@
 #include <string.h>
 #include <stdlib.h>
 #include <sys/wait.h>
-
+#include <signal.h>
 
 /* ======== PROTOTYPES ======== */
 
 extern char **environ;
 
 int _putchar(char c);
+int exec(char **args);
 
 #endif
