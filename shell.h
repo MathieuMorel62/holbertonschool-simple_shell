@@ -14,6 +14,6 @@
 /* ======== PROTOTYPES ======== */
 
 extern char **environ;
-
+int exec(char **args);
 
 #endif
