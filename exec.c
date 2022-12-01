@@ -39,7 +39,7 @@ int exec(char **args)
 	}
 
 	else
-		wait(&status);	
-	return(1);
+		wait(&status);
+	return (1);
 }
 
