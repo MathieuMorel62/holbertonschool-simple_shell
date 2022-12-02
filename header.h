@@ -9,7 +9,9 @@
 #include <string.h>
 #include <stdlib.h>
 #include <sys/wait.h>
+<<<<<<< HEAD
 #include <signal.h>
+=======
 #include <sys/types.h>
 #include <stdarg.h>
 #include <string.h>
@@ -17,14 +19,17 @@
 #include <stddef.h>
 #include <signal.h>
 
+>>>>>>> ricardo
+
 /* ======== ENVIRONMENT ======== */
 
 extern char **environ;
 
+<<<<<<< HEAD
 int _putchar(char c);
 int exec(char **args);
 char *f_read(void);
-
+=======
 /* STRUCTS */
 
 /**
@@ -42,5 +47,7 @@ typedef struct builtins
 char **tokenize(char *userinput);
 int shell_loop(int argc, char **argv);
 int _putchar(char c);
+
+>>>>>>> ricardo
 
 #endif /* SHELL_h */
