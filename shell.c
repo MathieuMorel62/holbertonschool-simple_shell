@@ -26,7 +26,7 @@ char **tokenize(char *line)
 	if (argv != NULL)
 	{
 		token_inc = 0;
-		tokenize = strtok(userinput, " ");
+		tokenize = strtok(line, " ");
 		while (token_inc < (tokencount + 1))
 		{
 			argv[token_inc] = tokenize;
