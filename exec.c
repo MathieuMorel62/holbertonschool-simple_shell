@@ -2,7 +2,6 @@
 
 /**
  * exec - function that executes the commands
- *
  * @args: list of commands
  *
  * Return: 1.
@@ -14,6 +13,7 @@ int exec(char **args)
 	int status;
 
 	my_pid = fork();
+
 	if (my_pid == -1)
 		perror("Error : fork");
 
@@ -23,23 +23,23 @@ int exec(char **args)
 			command = args[0];
 
 		if (args[0] == NULL)
+		{
 			perror("Error : no argument");
+		}
 		if (command == NULL)
 		{
 			free(command);
 			perror("Error : command");
 			return (0);
 		}
-
 		if (execve(command, args, environ) == -1)
 		{
-			perror("error : execve");
+			perror("error: execve");
 			return (0);
 		}
 	}
-
 	else
 		wait(&status);
+
 	return (1);
 }
-

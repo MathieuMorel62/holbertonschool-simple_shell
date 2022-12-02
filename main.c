@@ -8,25 +8,46 @@
 
 int main(void)
 {
-	int status = 1;
+	int status = 1, index = 0, j = 0;
 	char *line;
 	char **args = NULL;
 
 	while (status != 0)
 	{
+		status = isatty(0);
+
 		if (status == 1)
 		{
-			_putchar('&');
-			_putchar(' ');
+			write(1, "#cisfun& ", 9);
 		}
-
 		line = f_read();
 
-		if (args == NULL)
+		while (line[j] != '\0')
+		{
+			if (line[index] == ' ')
+			{
+				index++;
+			}
+			j++;
+		}
+		if (line[index] == '\0')
+		{
+			free(line);
 			continue;
+		}
+		args = tokenize(line);
 
+		if (args == NULL)
+		{
+			free(line);
+			continue;
+		}
 		if (line[0] != '\n' || line[1] != '\0')
-			status = **args;
+		{
+			status = exec(args);
+		}
+		free(args);
+		free(line);
 	}
 	return (0);
 }

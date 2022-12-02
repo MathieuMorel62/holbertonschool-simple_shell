@@ -15,7 +15,8 @@ char *f_read(void)
 	len = getline(&line, &size, stdin);
 
 	if (line[len - 1] == '\n' && line[1] != '\0')
+	{
 		line[len - 1] = '\0';
-
+	}
 	return (line);
 }
