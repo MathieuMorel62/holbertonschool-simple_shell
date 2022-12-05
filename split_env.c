@@ -9,8 +9,8 @@
 char **split_env(char *path)
 {
 	int path_size = 1024;
-	char *token = NULL;
-	char **argv = NULL;
+	char *token;
+	char **argv;
 	int index = 0;
 
 	argv = malloc(path_size * sizeof(char *));

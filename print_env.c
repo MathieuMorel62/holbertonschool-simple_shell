@@ -6,7 +6,7 @@
 
 void print_env(void)
 {
-	int index = 0, size;
+	int index, size;
 
 	for (index = 0; environ[index]; index++)
 	{

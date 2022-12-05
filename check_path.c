@@ -37,7 +37,6 @@ char *check_path(char *command)
 	}
 	free(new_path);
 	free(ar);
-
 	return (NULL);
 }
 

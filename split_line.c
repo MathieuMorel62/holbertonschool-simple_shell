@@ -30,7 +30,6 @@ char **tokenize(char *line)
 		index++;
 		token = strtok(NULL, " ");
 	}
-
 	argv[index] = NULL;
 
 	return (argv);
