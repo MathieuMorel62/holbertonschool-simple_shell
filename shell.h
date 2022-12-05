@@ -1,5 +1,5 @@
-#ifndef SHELL_H
-#define SHELL_H
+#ifndef __SHELL__
+#define __SHELL__
 
 
 /* ========= LIBRARY ========= */
@@ -9,29 +9,23 @@
 #include <string.h>
 #include <stdlib.h>
 #include <sys/wait.h>
-#include <signal.h>
+#include <sys/stat.h>
 #include <sys/types.h>
-#include <stdarg.h>
-#include <string.h>
 #include <errno.h>
-#include <stddef.h>
 #include <signal.h>
-
-
-/* ====== AUXILIAR FUNCTIONS ======= */
-
-int _strlen(char *s);
-char *_strcpy(char *dest, char *src);
-int _strcmp(char *s1, char *s2);
-char *_strcat(char *dest, char *src);
-int _strncmp(char *s1, char *s2, size_t len);
 
 /* ======== PROTOTYPES ======== */
 
 extern char **environ;
+
 int _putchar(char c);
 int exec(char **args);
 char *f_read(void);
-char **tokenize(char *userinput);
+char **tokenize(char *line);
+char *get_env(char *command);
+char **split_env(char *path);
+void print_env(void);
+char *check_path(char *command);
+void _signal(int sig);
 
-#endif /* SHELL_H */
+#endif
