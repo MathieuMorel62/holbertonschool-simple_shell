@@ -28,4 +28,14 @@ void print_env(void);
 char *check_path(char *command);
 void _signal(int sig);
 
+
+/* =========== AUXILIARIES FUNCTIONS PROTOTYPES ========== */
+
+char *_strcat(char *dest, char *src);
+int _strncmp(char *s1, char *s2, size_t len);
+int _strcmp(char *s1, char *s2);
+char *_strcpy(char *dest, char *src);
+int _strlen(char *s);
+
+
 #endif

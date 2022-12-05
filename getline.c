@@ -1,22 +1,29 @@
 #include "shell.h"
 
 /**
- * f_read - function read the stdin
+ * f_read - function that reads the user input
  *
- * Return: line if success or failled
+ * Return: line if success or NULL if it fails
  */
 
 char *f_read(void)
 {
 	char *line = NULL;
 	size_t size = 0;
-	size_t len = 0;
+	ssize_t length = 0;
 
-	len = getline(&line, &size, stdin);
+	length = getline(&line, &size, stdin);
 
-	if (line[len - 1] == '\n' && line[1] != '\0')
+	if (length == -1 || _strcmp(line, "exit\n") == 0)
 	{
-		line[len - 1] = '\0';
+		_putchar('\n');
+		free(line);
+		exit(STDOUT_FILENO);
+	}
+
+	if (line[length - 1] == '\n' && line[1] != '\0')
+	{
+		line[length - 1] = '\0';
 	}
 	return (line);
 }

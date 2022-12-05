@@ -2,7 +2,7 @@
 
 /**
  * exec - function that executes the commands
- * @args: list of commands
+ * @args: array that lists commands
  *
  * Return: 1.
  */
@@ -17,10 +17,14 @@ int exec(char **args)
 	if (my_pid == -1)
 		perror("Error : fork");
 
-	if (my_pid == 0)  /* if success */
+	if (my_pid == 0)
 	{
 		if (command[0] == '.' || command[0] == '/')
+		{
 			command = args[0];
+		}
+		else
+			command = check_path(args[0]);
 
 		if (args[0] == NULL)
 		{
@@ -29,7 +33,7 @@ int exec(char **args)
 		if (command == NULL)
 		{
 			free(command);
-			perror("Error : command");
+			perror("Error : no command");
 			return (0);
 		}
 		if (execve(command, args, environ) == -1)
