@@ -6,12 +6,12 @@
 
 void print_env(void)
 {
-	int index = 0;
+	int index = 0, size;
 
-	while (environ[index] != NULL)
+	for (index = 0; environ[index]; index++)
 	{
-		write(STDOUT_FILENO, environ[index], _strlen(environ[index]));
-		write(STDOUT_FILENO, "\n", 1);
-		index++;
+		size = _strlen(environ[index]);
+		write(1, environ[index], size);
+		write(1, "\n", 1);
 	}
 }

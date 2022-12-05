@@ -16,9 +16,9 @@ char *f_read(void)
 
 	if (length == -1 || _strcmp(line, "exit\n") == 0)
 	{
-		_putchar('\n');
+		write(1, "\n", 1);
 		free(line);
-		exit(STDOUT_FILENO);
+		exit(2);
 	}
 
 	if (line[length - 1] == '\n' && line[1] != '\0')

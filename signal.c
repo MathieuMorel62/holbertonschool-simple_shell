@@ -9,6 +9,6 @@
 void _signal(int sig)
 {
 	if (sig == SIGINT)
-		write(STDOUT_FILENO, "\n Hasta la vista, baby \n", 24);
+		write(1, "\n Hasta la vista, baby \n", 24);
 }
 

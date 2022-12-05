@@ -9,9 +9,9 @@
 char **tokenize(char *line)
 {
 	int tok_size = 64;
-	char *token = NULL;
-	char **argv = NULL;
-	int index;
+	char *token;
+	char **argv;
+	int index = 0;
 
 	argv = malloc(tok_size * sizeof(char *));
 
@@ -24,9 +24,10 @@ char **tokenize(char *line)
 	}
 	token = strtok(line, " ");
 
-	for (index = 0; token != NULL; index++)
+	while (token != NULL)
 	{
 		argv[index] = token;
+		index++;
 		token = strtok(NULL, " ");
 	}
 

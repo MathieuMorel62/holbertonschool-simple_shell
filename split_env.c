@@ -11,7 +11,7 @@ char **split_env(char *path)
 	int path_size = 1024;
 	char *token = NULL;
 	char **argv = NULL;
-	int index;
+	int index = 0;
 
 	argv = malloc(path_size * sizeof(char *));
 
@@ -23,9 +23,10 @@ char **split_env(char *path)
 
 	token = strtok(path, ":");
 
-	for (index = 0; token != NULL; index++)
+	while (token != NULL)
 	{
 		argv[index] = token;
+		index++;
 		token = strtok(NULL, ":");
 	}
 	argv[index] = NULL;

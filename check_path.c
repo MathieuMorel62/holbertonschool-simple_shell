@@ -12,7 +12,7 @@
 char *check_path(char *command)
 {
 	struct stat st;
-	int index = 0;
+	int index;
 	char *path = get_env("PATH");
 	char **ar = split_env(path);
 	char *new_path = malloc(sizeof(char) * 64);
@@ -23,7 +23,7 @@ char *check_path(char *command)
 		return (NULL);
 	}
 
-	while (ar[index] != NULL)
+	for (index = 0; ar[index] != NULL; index++)
 	{
 		new_path[0] = 0;
 		_strcat(new_path, ar[index]);
@@ -34,7 +34,6 @@ char *check_path(char *command)
 			free(ar);
 			return (new_path);
 		}
-		index++;
 	}
 	free(new_path);
 	free(ar);

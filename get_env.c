@@ -10,16 +10,14 @@
 
 char *get_env(char *command)
 {
-	int index = 0, len;
+	int index, len;
 
 	len = _strlen(command);
 
-	while (environ[index] != NULL)
+	for (index = 0; environ[index]; index++)
 	{
 		if (_strncmp(environ[index], command, len) == 0)
 		return (environ[index] + len + 1);
-		index++;
 	}
-
 	return (NULL);
 }

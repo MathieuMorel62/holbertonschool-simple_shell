@@ -19,7 +19,7 @@ int exec(char **args)
 
 	if (my_pid == 0)
 	{
-		if (command[0] == '.' || command[0] == '/')
+		if (command[0] == '/' || command[0] == '.')
 		{
 			command = args[0];
 		}
@@ -43,7 +43,8 @@ int exec(char **args)
 		}
 	}
 	else
+	{
 		wait(&status);
-
+	}
 	return (1);
 }
