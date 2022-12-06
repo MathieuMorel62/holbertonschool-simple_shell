@@ -17,6 +17,7 @@ int main(void)
 		if (status == 1)
 			write(1, "#cisfun$ ", 9); /* prompt is "#Cisfun$" */
 		line = f_read();
+		index = 0, j = 0;
 		while (line[j] != '\0')
 		{
 			if (line[index] == ' ')
@@ -30,8 +31,7 @@ int main(void)
 		}
 		if (_strcmp(line, "env") == 0)
 		{
-			print_env();
-			free(line);
+			print_env(), free(line);
 			continue;
 		}
 			args = tokenize(line);
