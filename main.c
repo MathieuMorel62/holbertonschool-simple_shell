@@ -1,5 +1,4 @@
 #include "shell.h"
-
 /**
  * main - starts the shell
  *
