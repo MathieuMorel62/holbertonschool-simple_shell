@@ -18,7 +18,7 @@ char *f_read(void)
 	{
 		/*write(1, "\n", 1);*/
 		free(line);
-		exit(2);
+		exit(1);
 	}
 	if (line[length - 1] == '\n' && line[1] != '\0')
 	{
