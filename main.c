@@ -6,7 +6,7 @@
  */
 int main(void)
 {
-	int status = 1, index, j;
+	int status = 1, index = 0, j = 0;
 	char *line, **args;
 /* signal : librairy - SIGINT is the interrupt signal (ctrl+C) */
 	signal(SIGINT, _signal);
@@ -17,7 +17,6 @@ int main(void)
 		if (status == 1)
 			write(1, "#cisfun$ ", 9); /* prompt is "#Cisfun$" */
 		line = f_read();
-		index = 0, j = 0;
 		while (line[j] != '\0')
 		{
 			if (line[index] == ' ')
