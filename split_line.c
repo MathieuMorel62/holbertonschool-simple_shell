@@ -20,7 +20,7 @@ char **tokenize(char *line)
 		perror("Error : allocation memory");
 		free(argv);
 		free(line);
-		exit(1);
+		exit(127); //test
 	}
 	token = strtok(line, " ");
 
