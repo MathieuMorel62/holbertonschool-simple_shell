@@ -39,4 +39,3 @@ char *check_path(char *command)
 	free(ar);
 	return (NULL);
 }
-

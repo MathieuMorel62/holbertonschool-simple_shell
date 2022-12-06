@@ -5,12 +5,10 @@
  *
  * Return: 0
  */
-
 int main(void)
 {
 	int status = 1, index, j;
 	char *line, **args;
-
 /* signal : librairy - SIGINT is the interrupt signal (ctrl+C) */
 	signal(SIGINT, _signal);
 	while (status)
