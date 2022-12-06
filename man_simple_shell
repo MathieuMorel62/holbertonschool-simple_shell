@@ -13,7 +13,7 @@
 .SH DESCRIPTION
 .B hsh
 is a command line interpreter created as a project for Holberton School. Hsh is a simplified version of the standard Linux shell. The program was created and compiled on
-.I Ubuntu 14.04 LTS
+.I Ubuntu 20.04 LTS
 Using
 .I GCC 4.8.4.
 .SH OPTIONS
