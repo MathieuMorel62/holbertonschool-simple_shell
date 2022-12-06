@@ -1,0 +1,47 @@
+.TH HSH 1 "2022-11-28" "Linux" "simple shell man page"
+.SH NAME
+.B hsh
+- simple shell command interpreter
+.SH SYNOPSIS
+.b ./hsh
+[
+.I command
+]
+[
+.I options
+]
+.SH DESCRIPTION
+.B hsh
+is a command line interpreter created as a project for Holberton School. Hsh is a simplified version of the standard Linux shell. The program was created and compiled on
+.I Ubuntu 14.04 LTS
+Using
+.I GCC 4.8.4.
+.SH OPTIONS
+
+.B cd - change directory
+
+.P
+.B env - print evironment
+
+.P
+.B exit - exit the shell
+
+.SH FILES
+
+.B print_env.c - 
+
+.P
+.B exec.c - function to handle the execution of new processes
+
+.P
+.B shell.h - header file
+
+.P
+.B _putchar - 
+
+.SH EXAMPLE
+:~/simple_shell$ ./hsh
+.P ($)
+.P ($)ls
+.P _putchar.c  exec.c  shell.h  _strcat.c  _strcmp.c  _strcpy.c  README.md  _strlen.c  _strncmp.c  check_path.c get_env.c getline.c print_env.c signal.c split_env.c split_line.c
+.P ($)exit
