@@ -1,9 +1,10 @@
-Holberton School - Holberton Shell(hsh)
+.	Holberton School - Holberton Shell(hsh)
 
 Code a simple shell for Holberton School. This assignment incorporates all topics covered so far, and marks the conclusion of the section of the course that is strictly about learning C programming.
-Prerequisites
 
-Only use the following functions and system calls:
+.	Prerequisites
+
+	Only use the following functions and system calls:
 
 access (man 2 access)
 chdir (man 2 chdir)
@@ -34,7 +35,7 @@ wait4 (man 2 wait4)
 write (man 2 write)
 _exit (man 2 _exit)
 
-Installing
+.	Installing
 
 Compile like this:
 
@@ -42,19 +43,19 @@ gcc -Wall -Wextra -Werror -pedantic -g *.c -o hsh
 
 The -g is for tracing Valgrind errors
 
-Testing
+.	Testing
 
 To test, after cloning this repository, use the following to compile the program. gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 
 When you run ./hsh you will see a prompt represented by the dollar sign '$' ready for your command. Or for non-interactive mode, after compiling, you can use the following to list the items in the directory (for example). echo "/bin/ls" | ./hsh
 
-Environment
+.	Environment
 
 Created and tested with Ubuntu 14.04 LTS
 
 Compiled with GCC 4.8.4 with flags: -Wall -Werror -Wextra -pedantic -std=gnu89
 
-Features
+.	Features
 
 cd - built-in to change directory
 
@@ -68,7 +69,7 @@ exit - built-in to exit the shell
 
 exit
 
-Authors
+.	Authors
 
 	Mathieu
 	Caroline
