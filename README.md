@@ -59,7 +59,6 @@ Compiled with GCC 4.8.4 with flags: -Wall -Werror -Wextra -pedantic -std=gnu89
 
 cd - built-in to change directory
 
-cd [DIRECTORY]
 
 env - built-in to print the current environment
 
@@ -69,7 +68,7 @@ exit - built-in to exit the shell
 
 exit
 
-.	Authors
+#	Authors
 
 	Mathieu
 	Caroline
