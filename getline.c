@@ -18,7 +18,7 @@ char *f_read(void)
 	{
 		/*write(1, "\n", 1); test*/
 		free(line);
-		exit(0);
+		exit(2);
 	}
 	if (_strcmp(line, "exit\n") == 0)
 	{
