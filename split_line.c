@@ -8,7 +8,7 @@
 
 char **tokenize(char *line)
 {
-	int tok_size = 64;
+	int tok_size = 1024; //change size 64
 	char *token;
 	char **argv;
 	int index = 0;
