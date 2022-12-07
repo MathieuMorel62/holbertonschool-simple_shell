@@ -29,18 +29,17 @@ int exec(char **args)
 		if (args[0] == NULL)
 		{
 			perror("Error : no argument");
-			exit(2); /* test exit*/
 		}
 		if (command == NULL)
 		{
 			free(command);
 			perror("Error : no command");
-			return (2); /* test 0*/
+			return (0);
 		}
 		if (execve(command, args, environ) == -1)
 		{
 			perror("error: execve");
-			return (2); /* test 0*/
+			return (0);
 		}
 	}
 	else
