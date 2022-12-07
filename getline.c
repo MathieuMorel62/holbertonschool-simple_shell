@@ -23,7 +23,7 @@ char *f_read(void)
 	if (_strcmp(line, "exit\n") == 0)
 	{
 		free(line);
-		exit(2);
+		exit(0);
 	}
 	if (line[length - 1] == '\n' && line[1] != '\0')
 	{
