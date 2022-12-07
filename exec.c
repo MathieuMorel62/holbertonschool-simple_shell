@@ -29,6 +29,7 @@ int exec(char **args)
 		if (args[0] == NULL)
 		{
 			perror("Error : no argument");
+			exit(2); /* test exit*/
 		}
 		if (command == NULL)
 		{
