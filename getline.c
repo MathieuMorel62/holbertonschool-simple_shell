@@ -14,14 +14,9 @@ char *f_read(void)
 
 	length = getline(&line, &size, stdin);
 
-	if (length == -1) /*|| _strcmp(line, "exit\n") == 0) . test*/
+	if (length == -1 || _strcmp(line, "exit\n") == 0)
 	{
 		/*write(1, "\n", 1); test*/
-		free(line);
-		exit(2);
-	}
-	if (_strcmp(line, "exit\n") == 0)
-	{
 		free(line);
 		exit(0);
 	}
