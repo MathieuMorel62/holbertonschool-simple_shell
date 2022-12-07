@@ -34,12 +34,12 @@ int exec(char **args)
 		{
 			free(command);
 			perror("Error : no command");
-			return (0);
+			return (2); /* test 0*/
 		}
 		if (execve(command, args, environ) == -1)
 		{
 			perror("error: execve");
-			return (0);
+			return (2); /* test 0*/
 		}
 	}
 	else
