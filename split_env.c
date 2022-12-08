@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
-* tokenize - function that tokenize the path 
+* tokenize - function that tokenize the path
 * @str: strings variable to tokenize
 * @delim: bounding parameters
 * Return: full array
