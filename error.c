@@ -4,7 +4,7 @@
 * _perror - function that generates a standard error
 *            message with the last error
 * @name: name of program
-* @cmd: command
+* @command: command
 */
 
 void _perror(char *name, char *command)

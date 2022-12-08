@@ -10,7 +10,7 @@ char **tokenize(char *str, char *delim)
 {
 	char **args;
 	int index = 0;
-	int path_size = 0;
+	int path_size = 1024;
 	char *tmp;
 	char *token;
 
@@ -24,7 +24,7 @@ char **tokenize(char *str, char *delim)
 	}
 	free(tmp);
 
-	args = malloc(sizeof(char *) * (path_size + 1));
+	args = malloc(path_size * sizeof(char *));
 
 	if (args == NULL)
 	{
