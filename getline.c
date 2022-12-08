@@ -20,6 +20,11 @@ char *f_read(void)
 		free(line);
 		exit(0);
 	}
+	if (length == EOF)
+	{
+		free(line);
+		exit(2);
+	}
 	if (line[length - 1] == '\n' && line[1] != '\0')
 	{
 		line[length - 1] = '\0';
