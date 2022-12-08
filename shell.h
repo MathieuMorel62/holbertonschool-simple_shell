@@ -15,6 +15,7 @@
 /* ======== PROTOTYPES ======== */
 
 extern char **environ;
+struct stat st;
 int exec(char **args);
 char *get_env(char *env);
 char **tokenize(char *str, char *delim);

@@ -10,7 +10,7 @@ char **tokenize(char *str, char *delim)
 {
 	char **args;
 	int index = 0;
-	int path_size;
+	int path_size = 0;
 	char *tmp;
 	char *token;
 
@@ -35,7 +35,7 @@ char **tokenize(char *str, char *delim)
 
 	token = strtok(tmp, delim);
 
-	for (index = 0; token != NULL; index++)
+	for (index = 0; token; index++)
 	{
 		args[index] = _strdup(token);
 		token = strtok(NULL, delim);

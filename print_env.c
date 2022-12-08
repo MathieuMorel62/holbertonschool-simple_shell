@@ -5,12 +5,11 @@
 */
 void print_env(void)
 {
-	int index = 0;
+	int index;
 
-	while (environ[index] != NULL)
+	for (index = 0; environ && environ[index]; index++)
 	{
-		write(1, environ[index], _strlen(environ[index]));
-		write(1, "\n", 1);
-		index++;
+		_puts(environ[index]);
+		_putchar('\n');
 	}
 }

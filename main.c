@@ -16,7 +16,7 @@ int main(int __attribute__((unused)) argc, char **argv)
 	while (1)
 	{
 		if (isatty(0) == 1)
-			write(1, "#cisfun$ ", 9);
+			_puts("#cisfun$ ");
 		if (getline(&buffer, &size, stdin) == -1 || _strcmp(buffer, "exit\n") == 0)
 		{
 			if (buffer)

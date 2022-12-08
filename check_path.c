@@ -9,10 +9,11 @@
 
 char *check_path(char *command)
 {
-	struct stat st;
-	char *paths = get_env("PATH");
+	char *paths = NULL;
 	char *path = NULL;
 	char *new_path = NULL;
+
+	paths = get_env("PATH");
 
 	if (paths)
 		path = strtok(paths, ":");
@@ -26,7 +27,7 @@ char *check_path(char *command)
 	while (path)
 	{
 		new_path = malloc(sizeof(char) * _strlen(path) + _strlen(command) + 2);
-		if (new_path == NULL)
+		if (!new_path)
 			return (NULL);
 		new_path[0] = '\0';
 		_strcat(new_path, path);

@@ -9,18 +9,18 @@
 
 void _perror(char *name, char *command)
 {
-	char *msg = NULL;
+	char *message = NULL;
 	int length = 0;
 
-	length = sizeof(char) * (_strlen(name) + _strlen(command) + 20);
-	msg = malloc(length);
-	if (!msg)
+	length = sizeof(char) * (_strlen(name) + _strlen(command) + 18);
+	message = malloc(length);
+	if (!message)
 		exit(0);
-	msg[0] = '\0';
-	_strcat(msg, name);
-	_strcat(msg, ": ");
-	_strcat(msg, command);
-	_strcat(msg, " not found\n");
-	write(2, msg, length - 1);
-	free(msg);
+	message[0] = '\0';
+	_strcat(message, name);
+	_strcat(message, ": ");
+	_strcat(message, command);
+	_strcat(message, " not found\n");
+	write(2, message, length - 1);
+	free(message);
 }

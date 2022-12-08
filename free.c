@@ -6,12 +6,12 @@
  */
 void free_array(char **array)
 {
-	int i = 0;
+	int index = 0;
 
-	while (array[i])
+	while (array[index])
 	{
-		free(array[i]);
-		i++;
+		free(array[index]);
+		index++;
 	}
 	free(array);
 }

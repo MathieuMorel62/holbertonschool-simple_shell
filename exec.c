@@ -9,11 +9,8 @@
 int exec(char **args)
 {
 	int status = 0;
-	pid_t my_pid;
 
-	my_pid = fork();
-
-	if (my_pid == 0)
+	if (fork() == 0)
 	{
 		execve(args[0], args, environ);
 	}
@@ -21,4 +18,3 @@ int exec(char **args)
 		wait(&status);
 	return (WEXITSTATUS(status));
 }
-
