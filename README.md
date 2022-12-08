@@ -187,6 +187,10 @@ To enter the manual page for the `simple_shell`, type this command:
 ## Test Valgrind
 
      valgrind --tool=memcheck --leak-check=yes --track-origins=yes --show-leak-kinds=all -s ./hsh
+     
+## Flowchart
+
+![flowchart](https://github.com/MathieuMorel62/holbertonschool-simple_shell/blob/main/flowchart.drawio.png)
 -------------------------------
 # Task To Realize The Project
 
