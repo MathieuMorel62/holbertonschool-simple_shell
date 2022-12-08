@@ -1,10 +1,13 @@
 #include "shell.h"
-
+/**
+ * main - starts the shell
+ * 
+ * Return: 0
+*/
 int main(void)
 {
 	int status = 1, index, j;
-	char *line;
-	char **args = NULL;
+	char *line, **args = NULL;
 	
 	signal(SIGINT, _signal);
 	while (status)

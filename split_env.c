@@ -1,9 +1,9 @@
 #include "shell.h"
 
-/*
-split_env - tokenize the path 
-@path: path to be tokenize
-Return: pointer 
+/**
+ * split_env - function that tokenizes the path
+ * @path: path to be tokenize
+ * Return: argv pointer 
 */
 
 char **split_env(char *path)

@@ -1,7 +1,8 @@
 #include "shell.h"
 
 /**
- * get_env - Getting the PATH.
+ * get_env - function that gets the path
+ * @command: command entered by the user
  *
  * Return: NULL.
  */

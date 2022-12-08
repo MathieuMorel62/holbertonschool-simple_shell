@@ -3,7 +3,7 @@
 /**
  * exec - function that executes the commands
  *
- * @args: list of commands
+ * @args: array that lists commands
  *
  * Return: 1.
  */

@@ -1,9 +1,10 @@
 #include "shell.h"
 
-/*
-tokenize - tokenize the line 
-@line: line to be tokenize
-Return: pointer 
+/**
+ * tokenize - tokenize the line 
+ * @line: line to be tokenized
+ * 
+ * Return: argv pointer 
 */
 
 char **tokenize(char *line)

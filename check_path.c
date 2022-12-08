@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * check_path - Check if the file is in the path.
+ * check_path - function that checks if the file is in the path.
  *
- * @ar: Entered commands.
+ * @command: commands entered by the user
  *
- * Return: If it finds the file in the path, returns the full path.
- *         Else, returns the same command entered.
+ * Return: returns the full path if the file is found in the path
+ * otherwise, it returns the same command entered by the user
  */
 
 char *check_path(char *command)

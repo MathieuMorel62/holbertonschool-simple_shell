@@ -1,9 +1,9 @@
 #include "shell.h"
 
 /**
- * f_read - function
+ * f_read - function that reads the user input
  *
- * Return: line if success or NULL if it failled
+ * Return: line if success or NULL if it fails
  */
 
 char *f_read(void)
