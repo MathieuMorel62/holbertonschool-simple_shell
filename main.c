@@ -1,18 +1,18 @@
 #include "shell.h"
 /**
  * main - starts the shell
- * 
+ *
  * Return: 0
 */
 int main(void)
 {
 	int status = 1, index, j;
 	char *line, **args = NULL;
-	
+
 	signal(SIGINT, _signal);
 	while (status)
 	{
-	    status = isatty(0);
+		status = isatty(0);
 		if (status == 1)
 			write(1, "#cisfun$ ", 9);
 		line = f_read();
@@ -30,13 +30,13 @@ int main(void)
 		}
 		if (strcmp(line, "env") == 0)
 		{
-		    print_env(), free(line);
-		    continue;
+			print_env(), free(line);
+			continue;
 		}
 		args = tokenize(line);
 		if (args == NULL)
 		{
-		    free(line);
+			free(line);
 			continue;
 		}
 		if (line[0] != '\n' || line[1] != '\0')

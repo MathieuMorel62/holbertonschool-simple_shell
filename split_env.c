@@ -15,13 +15,13 @@ char **split_env(char *path)
 
 	argv = malloc(path_size * sizeof(char *));
 
-	    if (argv == NULL)
-	    {
-		    perror("Error : allocation memory");
-		    return (0);
-	    }
+		if (argv == NULL)
+		{
+			perror("Error : allocation memory");
+			return (0);
+		}
 		token = strtok(path, ":");
-		
+
 		while (token != NULL)
 		{
 			argv[index] = token;
@@ -29,6 +29,6 @@ char **split_env(char *path)
 			token = strtok(NULL, ":");
 		}
 		argv[index] = NULL;
-	
+
 	return (argv);
 }

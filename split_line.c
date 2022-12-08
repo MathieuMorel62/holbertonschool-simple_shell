@@ -16,22 +16,22 @@ char **tokenize(char *line)
 
 	argv = malloc(tok_size * sizeof(char *));
 
-	    if (argv == NULL)
-	    {
-		    perror("Error : allocation memory");
-		    free(argv);
-		    free(line);
-		    exit(1);
-	    }
-		token = strtok(line, " ");
-		
-		while (token != NULL)
-		{
-			argv[index] = token;
-			index++;
-			token = strtok(NULL, " ");
-		}
-		argv[index] = NULL;
-	
+	if (argv == NULL)
+	{
+		perror("Error : allocation memory");
+		free(argv);
+		free(line);
+		exit(1);
+	}
+	token = strtok(line, " ");
+
+	while (token != NULL)
+	{
+		argv[index] = token;
+		index++;
+		token = strtok(NULL, " ");
+	}
+	argv[index] = NULL;
+
 	return (argv);
 }

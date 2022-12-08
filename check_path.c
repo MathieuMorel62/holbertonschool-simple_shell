@@ -16,24 +16,24 @@ char *check_path(char *command)
 	char *path = get_env("PATH");
 	char **ar = split_env(path);
 	char *new_path = malloc(sizeof(char) * 64);
-	
+
 	if (new_path == NULL)
 	{
-	    perror("Error : allocation memory");
-	    return (NULL);
+		perror("Error : allocation memory");
+		return (NULL);
 	}
 	for (index = 0; ar[index] != NULL; index++)
 	{
-	    new_path[0] = 0;
-	    strcat(new_path, ar[index]);
-	    strcat(new_path, "/");
-	    strcat(new_path, command);
+		new_path[0] = 0;
+		strcat(new_path, ar[index]);
+		strcat(new_path, "/");
+		strcat(new_path, command);
 
-	    if (stat(new_path, &st) == 0)
-	    {
-	        free(ar);
-	        return (new_path);
-	    }
+		if (stat(new_path, &st) == 0)
+		{
+			free(ar);
+			return (new_path);
+		}
 	}
 	free(new_path);
 	free(ar);

@@ -14,22 +14,22 @@ int exec(char **args)
 	int status;
 
 	my_pid = fork();
-	
+
 	if (my_pid == -1)
 		perror("Error : fork");
 
 	if (my_pid == 0)
 	{
 		if (command[0] == '/' || command[0] == '.')
-        {
+		{
 			command = args[0];
-        }
-		else 
-		    command = check_path(args[0]);
+		}
+		else
+			command = check_path(args[0]);
 
 		if (args[0] == NULL)
 			perror("Error : no argument");
-			
+	
 		if (command == NULL)
 		{
 			free(command);

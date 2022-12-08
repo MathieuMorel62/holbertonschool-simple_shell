@@ -13,11 +13,11 @@ char *f_read(void)
 	ssize_t length = 0;
 
 	length = getline(&line, &size, stdin);
-	
+
 	if (length == -1 || _strcmp(line, "exit\n") == 0)
-	{     
-	        free(line);
-	        exit(0);
+	{
+		free(line);
+		exit(0);
 	}
 	if (line[length - 1] == '\n' && line[1] != '\0')
 	{

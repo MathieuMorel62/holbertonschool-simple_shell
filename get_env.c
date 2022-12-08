@@ -16,8 +16,7 @@ char *get_env(char *command)
 	for (index = 0; environ[index]; index++)
 	{
 		if (strncmp(environ[index], command, size) == 0)
-        return (environ[index] + size + 1);	
+		return (environ[index] + size + 1);	
 	}
 	return (NULL);
 }
-
