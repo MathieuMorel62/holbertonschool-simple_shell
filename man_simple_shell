@@ -1,47 +1,78 @@
-.TH HSH 1 "2022-11-28" "Linux" "simple shell man page"
+.TH SIMPLE_SHELL 1 "28 November 2022" "simple shell man page"
+
 .SH NAME
-.B hsh
-- simple shell command interpreter
+.B simple_shell
+- UNIX command line interpreter
+
 .SH SYNOPSIS
-.b ./hsh
-[
-.I command
-]
-[
-.I options
-]
+.B simple_shell
+[command | file] [options]
+.PP
+.PP
 .SH DESCRIPTION
-.B hsh
-is a command line interpreter created as a project for Holberton School. Hsh is a simplified version of the standard Linux shell. The program was created and compiled on
+.B simple_shell
+is a command line interpreter created as a project for Holberton School. Simple_shell is a simplified version of the standard Linux shell. The program was created and compiled on
 .I Ubuntu 20.04 LTS
-Using
-.I GCC 4.8.4.
-.SH OPTIONS
 
-.B cd - change directory
+.SH  RETURN VALUE
+
+In success return always  0.
+If an error occured (case sensitive  or doesn't exist in the $PATH), the simple_shell exits the child process, displays an error message and returns with a new prompt.
+
+.SH USAGE
+To run the shell you need to compile all the .c files using GNU Compiler example :
+.P
+.RS
+.B $ gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
+.P
+Once compiled, to start the program, run:
+
+$ ./hsh
+
+
+.SH BUILTINS
+
 
 .P
-.B env - print evironment
+.B env 
+    Prints the variables from the current evironment
 
 .P
-.B exit - exit the shell
+.B exit
+    Exits the shell
 
-.SH FILES
+.SH INVOCATION
+simple_shell is started with the standard input connected to the terminal, the interactive mode is executed. Also non-interactively option can be executed.
+When simple_shell  is executed interactively, the prompt is displayed  #cisfun$ to read any commands, the command line argument is invoked and is treated as the first argument.
 
-.B print_env.c - 
 
+.SH  INTERACTIVE MODE EXAMPLE
+.PP
+.PP
+$ ./hsh
 .P
-.B exec.c - function to handle the execution of new processes
-
+#cisfun$ /bin/ls
 .P
-.B shell.h - header file
-
+hsh exec.c main.c 
 .P
-.B _putchar - 
+#cisfun$
+.P
+#cisfun$ exit
+.P
+$ 
+.PP
+.PP
+.SH NON-INTERACTIVE MODE EXAMPLE
+.PP
+.PP
+$ echo "/bin/ls" | ./hsh
+.PP
+.PP
+hsh exec.c main.c test_ls_2
 
-.SH EXAMPLE
-:~/simple_shell$ ./hsh
-.P ($)
-.P ($)ls
-.P _putchar.c  exec.c  shell.h  _strcat.c  _strcmp.c  _strcpy.c  README.md  _strlen.c  _strncmp.c  check_path.c get_env.c getline.c print_env.c signal.c split_env.c split_line.c
-.P ($)exit
+.SH BUGS
+
+For the moment, simple_shell (hsh) is not supporting  builtins such as cd...
+
+.SH AUTHOR
+Caroline CHOCHOY, Mathieu MOREL, Ricardo KOLLO.
