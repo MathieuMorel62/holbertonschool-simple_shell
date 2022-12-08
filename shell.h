@@ -17,14 +17,14 @@
 /* ======== PROTOTYPES ======== */
 
 extern char **environ;
-int exec (char **args);
-char *f_read (void);
-char **tokenize (char *line);
-char *get_env (char *command);
-char **split_env (char *path);
-void print_env (void);
-char *check_path (char *command);
-void _signal (int sig);
+int exec(char **args);
+char *f_read(void);
+char **tokenize(char *line);
+char *get_env(char *command);
+char **split_env(char *path);
+void print_env(void);
+char *check_path(char *command);
+void _signal(int sig);
 
 
 /* =========== AUXILIARIES FUNCTIONS PROTOTYPES ========== */

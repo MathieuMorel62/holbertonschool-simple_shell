@@ -29,7 +29,7 @@ int exec(char **args)
 
 		if (args[0] == NULL)
 			perror("Error : no argument");
-	
+
 		if (command == NULL)
 		{
 			free(command);
