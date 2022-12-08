@@ -1,32 +1,34 @@
 #include "shell.h"
 
 /*
-split_env - tokenize the path 
-@path: path to be tokenize
+tokenize - tokenize the line 
+@line: line to be tokenize
 Return: pointer 
 */
 
-char **split_env(char *path)
+char **tokenize(char *line)
 {
-	int path_size = 1024;
+	int tok_size = 64;
 	char *token = NULL;
 	char **argv = NULL;
 	int index = 0;
 
-	argv = malloc(path_size * sizeof(char *));
+	argv = malloc(tok_size * sizeof(char *));
 
 	    if (argv == NULL)
 	    {
 		    perror("Error : allocation memory");
-		    return (0);
+		    free(argv);
+		    free(line);
+		    exit(1);
 	    }
-		token = strtok(path, ":");
+		token = strtok(line, " ");
 		
 		while (token != NULL)
 		{
 			argv[index] = token;
 			index++;
-			token = strtok(NULL, ":");
+			token = strtok(NULL, " ");
 		}
 		argv[index] = NULL;
 	

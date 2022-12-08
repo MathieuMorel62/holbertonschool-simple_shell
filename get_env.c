@@ -1,27 +1,22 @@
 #include "shell.h"
 
 /**
- * get_env - function that gets environment variable
- * @env: Name of the environment variable
- * Return: return the content of environment variable
+ * get_env - Getting the PATH.
+ *
+ * Return: NULL.
  */
-char *get_env(char *env)
+
+char *get_env(char *command)
 {
-	char *sign;
-	char *content;
-	int index;
+	int index, size;
+
+	size = strlen(command);
 
 	for (index = 0; environ[index]; index++)
 	{
-		sign = _strdup(environ[index]);
-		sign = strtok(sign, "=");
-		if (_strcmp(sign, env) == 0)
-		{
-			content = _strdup(strtok(NULL, "="));
-			free(sign);
-			return (content);
-		}
-		free(sign);
+		if (strncmp(environ[index], command, size) == 0)
+        return (environ[index] + size + 1);	
 	}
 	return (NULL);
 }
+

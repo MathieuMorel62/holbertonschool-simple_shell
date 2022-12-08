@@ -1,50 +1,46 @@
 #include "shell.h"
-/**
-* main - starts the shell
-* @argc: number of given arguments
-* @argv: array of arguments
-* Return:  return exit status of last program.
-*/
-int main(int __attribute__((unused)) argc, char **argv)
-{
-	char *buffer = NULL, *command;
-	size_t size = 0;
-	char **args;
-	int status = 0;
 
+int main(void)
+{
+	int status = 1, index = 0, j = 0;
+	char *line;
+	char **args = NULL;
+	
 	signal(SIGINT, _signal);
-	while (1)
+	while (status)
 	{
-		if (isatty(0) == 1)
-			_puts("#cisfun$ ");
-		if (getline(&buffer, &size, stdin) == -1 || _strcmp(buffer, "exit\n") == 0)
+	    status = isatty(0);
+		if (status == 1)
 		{
-			if (buffer)
-				free(buffer);
-			exit(status);
+			write(1, "#cisfun$ ", 9);
 		}
-		command = _strdup(buffer);
-		strtok(command, "\n");
-		args = tokenize(command, "\t \n");
-		free(command);
-		if (_strcmp(args[0], "env") == 0)
-			print_env();
-		else if (args[0])
+		line = f_read();
+		while (line[j] != '\0')
 		{
-			command = check_path(args[0]);
-			if (command)
-			{
-				free(args[0]);
-				args[0] = command;
-				status = exec(args);
-			}
-			else
-			{
-				status = 127;
-				_perror(argv[0], args[0]);
-			}
+			if (line[index] == ' ')
+				index++;
+			j++;
 		}
-		free_array(args);
+		if (line[index] == '\0')
+		{
+			free(line);
+			continue;
+		}
+		if (strcmp(line, "env") == 0)
+		{
+		    print_env(), free(line);
+		    continue;
+		}
+		args = tokenize(line);
+		if (args == NULL)
+		{
+		    free(line);
+			continue;
+		}
+		if (line[0] != '\n' || line[1] != '\0')
+			status = exec(args);
+		free(args);
+		free(line);
 	}
 	return (0);
 }

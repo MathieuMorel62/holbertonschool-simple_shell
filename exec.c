@@ -1,20 +1,50 @@
 #include "shell.h"
 
 /**
-* exec - function that executes the program
-* @args: pointer to pointer argument string
-* Return: return exit status of program
-*/
-
+ * exec - function that executes the commands
+ *
+ * @args: list of commands
+ *
+ * Return: 1.
+ */
 int exec(char **args)
 {
-	int status = 0;
+	pid_t my_pid;
+	char *command = args[0];
+	int status;
 
-	if (fork() == 0)
+	my_pid = fork();
+	
+	if (my_pid == -1)
+		perror("Error : fork");
+
+	if (my_pid == 0)
 	{
-		execve(args[0], args, environ);
+		if (command[0] == '/' || command[0] == '.')
+        {
+			command = args[0];
+        }
+		else 
+		    command = check_path(args[0]);
+
+		if (args[0] == NULL)
+			perror("Error : no argument");
+			
+		if (command == NULL)
+		{
+			free(command);
+			perror("Error");
+			return (0);
+		}
+		if (execve(command, args, environ) == -1)
+		{
+			perror("Error");
+			return (0);
+		}
 	}
 	else
+	{
 		wait(&status);
-	return (WEXITSTATUS(status));
+	}	
+	return (1);
 }
