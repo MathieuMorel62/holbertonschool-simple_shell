@@ -16,6 +16,7 @@ int exec(char **args)
 
 	if (my_pid == -1)
 		perror("Error : fork");
+		
 
 	if (my_pid == 0)
 	{
@@ -29,6 +30,7 @@ int exec(char **args)
 		if (args[0] == NULL)
 		{
 			perror("Error : no argument");
+			return (127); /*test*/
 		}
 		if (command == NULL)
 		{
