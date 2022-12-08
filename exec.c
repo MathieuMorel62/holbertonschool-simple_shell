@@ -33,18 +33,17 @@ int exec(char **args)
 		if (command == NULL)
 		{
 			free(command);
-			perror("Error");
+			perror("Error: no command");
 			return (0);
 		}
 		if (execve(command, args, environ) == -1)
 		{
-			perror("Error");
+			perror("Error: execve");
 			return (0);
 		}
 	}
 	else
-	{
 		wait(&status);
-	}	
+
 	return (1);
 }

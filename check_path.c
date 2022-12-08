@@ -11,6 +11,7 @@
 
 char *check_path(char *command)
 {
+	struct stat st;
 	int index;
 	char *path = get_env("PATH");
 	char **ar = split_env(path);

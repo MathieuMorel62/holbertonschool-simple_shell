@@ -17,7 +17,6 @@
 /* ======== PROTOTYPES ======== */
 
 extern char **environ;
-struct stat st;
 int exec (char **args);
 char *f_read (void);
 char **tokenize (char *line);

@@ -2,7 +2,7 @@
 
 int main(void)
 {
-	int status = 1, index = 0, j = 0;
+	int status = 1, index, j;
 	char *line;
 	char **args = NULL;
 	
@@ -11,10 +11,9 @@ int main(void)
 	{
 	    status = isatty(0);
 		if (status == 1)
-		{
 			write(1, "#cisfun$ ", 9);
-		}
 		line = f_read();
+		index = 0, j = 0;
 		while (line[j] != '\0')
 		{
 			if (line[index] == ' ')
