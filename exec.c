@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
-* _execve - function that executes the program
+* exec - function that executes the program
 * @args: pointer to pointer argument string
 * Return: return exit status of program
 */

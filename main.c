@@ -11,11 +11,12 @@ int main(int __attribute__((unused)) argc, char **argv)
 	size_t size = 0;
 	char **args;
 	int status = 0;
+
 	signal(SIGINT, _signal);
 	while (1)
 	{
 		if (isatty(0) == 1)
-			write(1,"#cisfun$ ", 9);
+			write(1, "#cisfun$ ", 9);
 		if (getline(&buffer, &size, stdin) == -1 || _strcmp(buffer, "exit\n") == 0)
 		{
 			if (buffer)

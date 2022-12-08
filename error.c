@@ -1,7 +1,8 @@
 #include "shell.h"
 
 /**
-* _perror - function that generates a standard error message with the last error
+* _perror - function that generates a standard error
+*            message with the last error
 * @name: name of program
 * @cmd: command
 */
