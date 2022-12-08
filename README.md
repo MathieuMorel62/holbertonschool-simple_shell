@@ -7,6 +7,20 @@ This is a collaboration project between three students at [Holberton School](htt
 ## Description
 This repo has a simple implementation of the standard command interpreter for the system that receives commands from the standard input or a file. This version has many features that make it similar in some aspects to the standard shell, but it is a simple program to learn its operation. Only some standard shell features have been incorporated.
 
+#### Basic lifetime of a shell
+
+1 - Startup the shell. 
+
+2 - Wait for user input. 
+
+3 - Parse user input. 
+
+4 - Execute the command and return the result. 
+
+5 - Go back to step 2. 
+
+You could terminate the shell anytime, just type in the prompt the exit command. 
+
 ## Resources
 ### Read or Watch:
 
@@ -81,6 +95,12 @@ This repo has a simple implementation of the standard command interpreter for th
      wait4 (man 2 wait4)
      write (man 2 write)
 
+## Installation
+
+To install our `simple_shell`, you have to clone our repository :
+
+     $ git clone https://github.com/MathieuMorel62/holbertonschool-simple_shell.git
+
 ## Compilation
 
 Your shell will be compiled this way:
@@ -94,7 +114,7 @@ Your shell will be executable this way:
 ## Testing
 
 Your shell should work like this in interactive mode:
-
+```c
      $ ./hsh
      ($) /bin/ls
      hsh main.c shell.c
@@ -115,7 +135,7 @@ But also in non-interactive mode:
      hsh main.c shell.c test_ls_2
      hsh main.c shell.c test_ls_2
      $
-
+```
 ## Examples
 - List files using `ls`:
 
@@ -124,9 +144,9 @@ But also in non-interactive mode:
       README.md               _strcpy.c               exec.c                  main.c                  signal.c
       _putchar.c              _strlen.c               get_env.c               man_simple_shell        split_env.c
       _strcat.c               _strncmp.c              getline.c               print_env.c             split_line.c
-
+      
 - List files using `ls -la` and `CTRL-C` to stop the program:
-
+```c
       #cisfun$ ls -la
       total 224
       drwxr-xr-x@ 23 Holberton  staff    736  8 déc 20:12 .
@@ -154,7 +174,7 @@ But also in non-interactive mode:
       -rw-r--r--@  1 Holberton  staff    535  8 déc 19:02 split_line.c
       #cisfun$ ^C
       Hasta la vista, baby :)
-
+```
 - write `exit` or `CTRL-D` to stop and return to the original shell
 
       #cisfun$ exit
