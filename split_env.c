@@ -1,35 +1,46 @@
 #include "shell.h"
 
 /**
- * split_env - function that tokenizes the path
- * @path: path to be tokenize
- * Return: argv pointer
- */
-
-char **split_env(char *path)
+* tokenize - function that tokenize the path 
+* @str: strings variable to tokenize
+* @delim: bounding parameters
+* Return: full array
+*/
+char **tokenize(char *str, char *delim)
 {
-	int path_size = 1024;
-	char *token;
-	char **argv;
+	char **args;
 	int index = 0;
+	int path_size;
+	char *tmp;
+	char *token;
 
-	argv = malloc(path_size * sizeof(char *));
+	tmp = _strdup(str);
 
-	if (argv == NULL)
+	token = strtok(tmp, delim);
+
+	for (path_size = 0; token; path_size++)
 	{
-		perror("Error : allocation memory");
-		return (0);
+		token = strtok(NULL, delim);
+	}
+	free(tmp);
+
+	args = malloc(sizeof(char *) * (path_size + 1));
+
+	if (args == NULL)
+	{
+		return (NULL);
 	}
 
-	token = strtok(path, ":");
+	tmp = _strdup(str);
 
-	while (token != NULL)
+	token = strtok(tmp, delim);
+
+	for (index = 0; token != NULL; index++)
 	{
-		argv[index] = token;
-		index++;
-		token = strtok(NULL, ":");
+		args[index] = _strdup(token);
+		token = strtok(NULL, delim);
 	}
-	argv[index] = NULL;
-
-	return (argv);
+	args[index] = NULL;
+	free(tmp);
+	return (args);
 }

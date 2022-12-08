@@ -1,41 +1,46 @@
 #include "shell.h"
 
 /**
- * check_path - function that checks if the file is in the path.
- *
- * @command: commands entered by the user.
- *
- * Return: returns the full path if the file is found in the path
- * Otherwise, it returns the same command entered  by the user.
- */
+* check_path - checks and finds the path of the command passed to it
+*
+* @command: command
+* Return: the absolute path of the command
+*/
 
 char *check_path(char *command)
 {
 	struct stat st;
-	int index;
-	char *path = get_env("PATH");
-	char **ar = split_env(path);
-	char *new_path = malloc(sizeof(char) * 64);
+	char *paths = get_env("PATH");
+	char *path = NULL;
+	char *new_path = NULL;
 
-	if (new_path == NULL)
+	if (paths)
+		path = strtok(paths, ":");
+
+	if (_strchr(command, '/') && stat(command, &st) == 0)
 	{
-		perror("Error : allocation memory");
-		return (NULL);
+		if (path)
+			free(path);
+		return (_strdup(command));
 	}
-
-	for (index = 0; ar[index] != NULL; index++)
+	while (path)
 	{
-		new_path[0] = 0;
-		_strcat(new_path, ar[index]);
+		new_path = malloc(sizeof(char) * _strlen(path) + _strlen(command) + 2);
+		if (new_path == NULL)
+			return (NULL);
+		new_path[0] = '\0';
+		_strcat(new_path, path);
 		_strcat(new_path, "/");
 		_strcat(new_path, command);
-		if (stat(new_path, &st) == 0)
+		if (stat(new_path, &st) ==  0)
 		{
-			free(ar);
+			free(paths);
 			return (new_path);
 		}
+		path = strtok(NULL, ":");
+		free(new_path);
 	}
-	free(new_path);
-	free(ar);
+	if (paths)
+		free(paths);
 	return (NULL);
 }

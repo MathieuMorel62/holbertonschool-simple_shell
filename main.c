@@ -1,49 +1,49 @@
 #include "shell.h"
 /**
- * main - starts the shell
- *
- * Return: 0
- */
-int main(void)
+* main - starts the shell
+* @argc: number of given arguments
+* @argv: array of arguments
+* Return:  return exit status of last program.
+*/
+int main(int __attribute__((unused)) argc, char **argv)
 {
-	int status = 1, index = 0, j = 0;
-	char *line, **args;
-/* signal : librairy - SIGINT is the interrupt signal (ctrl+C) */
+	char *buffer = NULL, *command;
+	size_t size = 0;
+	char **args;
+	int status = 0;
 	signal(SIGINT, _signal);
-	while (status)
+	while (1)
 	{
-/*isatty is a function that returns 1 if file descriptor refers to a terminal*/
-		status = isatty(0);
-		if (status == 1)
-			write(1, "#cisfun$ ", 9); /* prompt is "#Cisfun$" */
-		line = f_read();
-		index = 0, j = 0;
-		while (line[j] != '\0')
+		if (isatty(0) == 1)
+			write(1,"#cisfun$ ", 9);
+		if (getline(&buffer, &size, stdin) == -1 || _strcmp(buffer, "exit\n") == 0)
 		{
-			if (line[index] == ' ')
-				index++;
-			j++;
+			if (buffer)
+				free(buffer);
+			exit(status);
 		}
-		if (line[index] == '\0')
+		command = _strdup(buffer);
+		strtok(command, "\n");
+		args = tokenize(command, "\t \n");
+		free(command);
+		if (_strcmp(args[0], "env") == 0)
+			print_env();
+		else if (args[0])
 		{
-			free(line);
-			continue;
+			command = check_path(args[0]);
+			if (command)
+			{
+				free(args[0]);
+				args[0] = command;
+				status = exec(args);
+			}
+			else
+			{
+				status = 127;
+				_perror(argv[0], args[0]);
+			}
 		}
-		if (_strcmp(line, "env") == 0)
-		{
-			print_env(), free(line);
-			continue;
-		}
-			args = tokenize(line);
-			if (args == NULL)
-		{
-			free(line);
-			continue;
-		}
-		if (line[0] != '\n' || line[1] != '\0')
-			status = exec(args);
-		free(args);
-		free(line);
+		free_array(args);
 	}
 	return (0);
 }

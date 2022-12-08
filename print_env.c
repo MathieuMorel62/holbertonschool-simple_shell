@@ -1,17 +1,16 @@
 #include "shell.h"
 
 /**
- * print_env - prints the environment variable
- */
-
+* _print_env - function that prints environment variables
+*/
 void print_env(void)
 {
-	int index, size;
+	int index = 0;
 
-	for (index = 0; environ[index]; index++)
+	while (environ[index] != NULL)
 	{
-		size = _strlen(environ[index]);
-		write(1, environ[index], size);
+		write(1, environ[index], _strlen(environ[index]));
 		write(1, "\n", 1);
+		index++;
 	}
 }
