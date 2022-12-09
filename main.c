@@ -6,11 +6,11 @@
 */
 int main(void)
 {
-	int status = 1, index, j;
+	int status = 0, index, j;
 	char *line, **args = NULL;
 
 	signal(SIGINT, _signal);
-	while (status)
+	while (1)
 	{
 		status = isatty(0);
 		if (status == 1)
