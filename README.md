@@ -121,9 +121,10 @@ Your shell should work like this in interactive mode:
      ($)
      ($) exit
      $
+```
 
 But also in non-interactive mode:
-
+```c
      $ echo "/bin/ls" | ./hsh
      hsh main.c shell.c test_ls_2
      $
